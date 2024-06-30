@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Circles</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+
+    <script>
+      // Get the canvas element
+      const canvas = document.getElementById("myCanvas");
+      const context = canvas.getContext("2d");
+
+      // Draw 50 random circles
+      
+      for (let i = 0; i < 50; i++) {
+        // Generate random x and y coordinates within the canvas
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+
+        // Generate a random color for each circle
+        const color = getRandomColor();
+    /*
+        // Draw the circle
+        context.beginPath();
+        context.rect(x, y, 50, 30);
+        context.fillStyle = color;
+        context.fill();
+        context.closePath();
+      }
+    */
+    context.beginPath();
+    context.moveTo(100, 150);
+    context.lineTo(x, y);
+    context.lineWidth = 6;
+    context.lineCap = 'square';
+    context.strokeStyle = color;
+    context.stroke();
+
+      // Function to generate a random color
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    } 
+
+
+    // Check if geolocation is supported by the browser
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+} else {
+  console.log("Geolocation is not supported by this browser.");
+}
+
+// Success callback function
+function successCallback(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+
+  console.log("Latitude: " + latitude);
+  console.log("Longitude: " + longitude);
+}
+
+// Error callback function
+function errorCallback(error) {
+  console.log("Error occurred while retrieving geolocation: " + error.message);
+}
+
+    </script>
+  </body>
+</html>
+
+/*
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/c26cd2166c.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <title>Gauri Nagpure- web developer, Programmer</title>
+
+  <style>
+    .circle{
+    height: 70px;
+    width: 70px;
+    background-color: rgb(228, 220, 220);
+    color: black;
+    padding: 12px;
+    font-size: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+  </style>
+</head>
+
+<body>
+</div>
+<div class="row">
+  <div class="col-lg-4 mb-3">
+    <div class="card text-center py-3">
+      <div class="card-body">
+        <div class="circle">
+          
+        </div>
+        <h4 class="font-weight-bold pb-2">Creative</h4>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Alias libero ipsum eligendi et molestiae voluptatum
+          aspernatur commodi, sapiente fuga eaque atque numquam
+          mollitia.
+          </p>
+          <input type="button" class="btn1 mt-5" value="Download" onclick="window.location.href='final.pdf'" />
+          
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-3">
+    <div class="card text-center py-3">
+      <div class="card-body">
+        <div class="circle">
+          
+        </div>
+        <h4 class="font-weight-bold pb-2">Retina Ready</h4>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Alias libero ipsum eligendi et molestiae voluptatum
+          aspernatur commodi, sapiente fuga eaque atque numquam
+          mollitia.
+          </p>
+          <input type="button" class="btn1 mt-5" value="Download" onclick="window.location.href='final.pdf'" />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 mb-3">
+    <div class="card text-center py-3" >
+      <div class="card-body">
+        <div class="circle">
+          
+        </div>
+        <h4 class="font-weight-bold pb-2">Branding</h4>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Alias libero ipsum eligendi et molestiae voluptatum
+          aspernatur commodi, sapiente fuga eaque atque numquam
+          mollitia.
+          </p>
+          <input type="button" class="btn1 mt-5" value="Download" onclick="window.location.href='final.pdf'" />
+      </div>
+    </div>
+  </div>
+  <a id="contact"></a>
+</div>
+</div>
+</section>
+  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+</body>
+
+</html>
+*/
